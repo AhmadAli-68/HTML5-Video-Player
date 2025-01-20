@@ -1,0 +1,199 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 1) 3%, rgba(13, 199, 211, 1) 48%, rgba(255, 0, 0, 1) 95%);
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+}
+
+.player {
+    text-align: center;
+    max-width: 750px;
+    border: 5px solid rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    position: relative;
+    font-size: 0;
+    overflow: hidden;
+}
+
+.player:fullscreen {
+    max-width: none;
+    width: 100%;
+}
+
+.player:-webkit-full-screen {
+    max-width: none;
+    width: 100%;
+}
+
+.player__video {
+    width: 100%;
+}
+
+.player__button {
+    background: none;
+    border: 0;
+    line-height: 1;
+    color: white;
+    text-align: center;
+    outline: 0;
+    padding: 0;
+    cursor: pointer;
+    max-width: 50px;
+}
+
+.full__screen {
+    line-height: 1;
+    cursor: pointer;
+    background: none;
+    color: white;
+    outline: 0;
+    border: none;
+    text-align: center;
+    padding: 0;
+    max-width: 50px;
+    font-size: 25px;
+    padding-right: 10px;
+}
+
+.player__button:focus {
+    border-color: red;
+}
+
+.player__slider {
+    width: 10px;
+    height: 30px;
+}
+
+.player__controls {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    transform: translateY(100%) translateY(-5px);
+    transition: all 0.3s;
+    flex-wrap: wrap;
+    background: rgba(0, 0, 0, 0.3);
+}
+
+.player:hover .player__controls {
+    transform: translateY(0);
+}
+
+.player:hover .progress {
+    height: 15px;
+}
+
+.player__controls>* {
+    flex: 1;
+}
+
+.progress {
+    flex: 10;
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    flex-basis: 100%;
+    height: 5px;
+    transition: height 0.3s;
+    background: rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.progress__filled {
+    border-radius: 50px;
+    width: 50%;
+    background: red;
+    flex: 0;
+    flex-basis: 0%;
+}
+
+/* unholy CSS to style input type="range" */
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 100%;
+    background: transparent;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: #ccc;
+    border-radius: 2px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    margin-top: -4px;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+input[type=range]::-moz-range-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: #ccc;
+    border-radius: 2px;
+}
+
+input[type=range]::-moz-range-thumb {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+input[type=range]::-ms-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: transparent;
+    border-color: transparent;
+    color: transparent;
+}
+
+input[type=range]::-ms-fill-lower {
+    background: #ccc;
+    border-radius: 2px;
+}
+
+input[type=range]::-ms-fill-upper {
+    background: #ccc;
+    border-radius: 2px;
+}
+
+input[type=range]::-ms-thumb {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #fff;
+    cursor: pointer;
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
